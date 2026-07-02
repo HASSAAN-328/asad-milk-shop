@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@500;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place Your Order | Asad Milk Shop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="Asad Milk Shop Logo">
+      Asad Milk Shop
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html" id="authNavLink">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="order-wrap">
+  <span class="eyebrow">Checkout</span>
+  <h2 class="section-title" style="text-align:left; margin-top:10px;">Place Your Order</h2>
+
+  <div class="order-product-card reveal">
+    <img id="pImage" src="" alt="Product">
+    <div>
+      <h3 id="pName"></h3>
+      <div class="urdu" id="pUrdu"></div>
+      <div class="price" id="pPrice"></div>
+    </div>
+  </div>
+
+  <div class="form-card reveal" style="margin:0 0 24px 0;">
+    <h2 style="text-align:left;">Quantity</h2>
+    <div class="qty-control">
+      <button type="button" onclick="changeQty(-1)">-</button>
+      <input type="number" id="qtyInput" value="1" min="1" oninput="calcTotal()">
+      <button type="button" onclick="changeQty(1)">+</button>
+      <span id="unitLabel"></span>
+    </div>
+    <div class="total-price-box">Total: Rs <span id="totalPrice">0</span></div>
+  </div>
+
+  <div class="form-card reveal" style="margin:0 0 24px 0;">
+    <h2 style="text-align:left;">Your Details</h2>
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="custName" placeholder="e.g. Ali Raza" required>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" id="custPhone" placeholder="e.g. 03001234567" required>
+    </div>
+    <div class="form-group">
+      <label>Delivery Address</label>
+      <textarea id="custAddress" rows="3" placeholder="House #, Street, Area, City" required></textarea>
+    </div>
+  </div>
+
+  <div class="form-card reveal" style="margin:0 0 24px 0;">
+    <h2 style="text-align:left;">Payment Method</h2>
+    <div class="payment-methods" id="paymentMethods">
+      <label><input type="radio" name="payMethod" value="Bank" onchange="selectPayment(this)"> Bank Transfer</label>
+      <label><input type="radio" name="payMethod" value="JazzCash" onchange="selectPayment(this)"> JazzCash</label>
+      <label><input type="radio" name="payMethod" value="Easypaisa" onchange="selectPayment(this)"> Easypaisa</label>
+      <label><input type="radio" name="payMethod" value="COD" onchange="selectPayment(this)"> Cash on Delivery</label>
+    </div>
+
+    <!-- Bank Fields -->
+    <div class="payment-detail-section" id="section-Bank">
+      <div class="form-group">
+        <label>Bank Name</label>
+        <input type="text" id="bankName" placeholder="e.g. HBL, UBL, Meezan Bank">
+      </div>
+      <div class="form-group">
+        <label>Account Title</label>
+        <input type="text" id="bankAccountTitle" placeholder="Account holder name">
+      </div>
+      <div class="form-group">
+        <label>Account Number</label>
+        <input type="text" id="bankAccountNumber" placeholder="Account number">
+      </div>
+      <div class="form-group">
+        <label>IBAN Number</label>
+        <input type="text" id="bankIban" placeholder="PKxx XXXX XXXX XXXX XXXX XXXX">
+      </div>
+    </div>
+
+    <!-- JazzCash Fields -->
+    <div class="payment-detail-section" id="section-JazzCash">
+      <div class="form-group">
+        <label>JazzCash Account Title</label>
+        <input type="text" id="jazzTitle" placeholder="Account holder name">
+      </div>
+      <div class="form-group">
+        <label>JazzCash Account Number</label>
+        <input type="text" id="jazzNumber" placeholder="03XXXXXXXXX">
+      </div>
+    </div>
+
+    <!-- Easypaisa Fields -->
+    <div class="payment-detail-section" id="section-Easypaisa">
+      <div class="form-group">
+        <label>Easypaisa Account Title</label>
+        <input type="text" id="easyTitle" placeholder="Account holder name">
+      </div>
+      <div class="form-group">
+        <label>Easypaisa Account Number</label>
+        <input type="text" id="easyNumber" placeholder="03XXXXXXXXX">
+      </div>
+    </div>
+
+    <!-- COD Info -->
+    <div class="payment-detail-section" id="section-COD">
+      <p>You will pay in cash directly to the delivery rider when your order arrives at your doorstep. No advance payment required.</p>
+    </div>
+  </div>
+
+  <button class="btn btn-block btn-accent" style="padding:16px; font-size:1.1rem;" onclick="submitOrder()">Confirm Order</button>
+  <div class="form-msg" id="orderMsg"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Asad Milk Shop</h4>
+      <p>Serving pure and fresh dairy products in Faisalabad, Pakistan since 1990.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Phone: +923045674893</p>
+      <p>Email: ABC@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Asad Milk Shop. All Rights Reserved. | Created by Developer <strong>Muhammad Hassaan</strong>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// SECURITY: only logged-in, registered customers can place an order.
+// If someone opens this page directly without logging in, send them
+// to the login page and bring them straight back here afterwards.
+if (!isLoggedIn()) {
+  const here = window.location.pathname.split("/").pop() + window.location.search;
+  window.location.href = "login.html?next=" + encodeURIComponent(here);
+}
+
+// Get product id from URL e.g. order.html?product=milk
+const params = new URLSearchParams(window.location.search);
+const productId = params.get("product");
+const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+
+document.getElementById("pImage").src = product.image;
+document.getElementById("pName").textContent = product.name;
+document.getElementById("pUrdu").textContent = product.urdu;
+document.getElementById("pPrice").textContent = "Rs " + product.price + " per " + product.unit;
+document.getElementById("unitLabel").textContent = product.unit + "(s)";
+document.getElementById("qtyInput").min = product.minQty;
+document.getElementById("qtyInput").max = product.maxQty;
+
+// Pre-fill the customer's name from their account
+const currentUser = getUser();
+if (currentUser) {
+  document.getElementById("custName").value = currentUser.full_name || "";
+}
+
+function calcTotal() {
+  let qty = parseFloat(document.getElementById("qtyInput").value) || product.minQty;
+  if (qty < product.minQty) qty = product.minQty;
+  if (qty > product.maxQty) qty = product.maxQty;
+  document.getElementById("qtyInput").value = qty;
+  const total = (qty * product.price).toFixed(2);
+  document.getElementById("totalPrice").textContent = total;
+}
+calcTotal();
+
+function changeQty(delta) {
+  const input = document.getElementById("qtyInput");
+  let qty = (parseFloat(input.value) || product.minQty) + delta;
+  if (qty < product.minQty) qty = product.minQty;
+  if (qty > product.maxQty) qty = product.maxQty;
+  input.value = qty;
+  calcTotal();
+}
+
+function selectPayment(radio) {
+  document.querySelectorAll(".payment-detail-section").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".payment-methods label").forEach(l => l.classList.remove("selected"));
+  document.getElementById("section-" + radio.value).classList.add("active");
+  radio.closest("label").classList.add("selected");
+}
+
+async function submitOrder() {
+  const msg = document.getElementById("orderMsg");
+  const custName = document.getElementById("custName").value.trim();
+  const custPhone = document.getElementById("custPhone").value.trim();
+  const custAddress = document.getElementById("custAddress").value.trim();
+  const payMethodEl = document.querySelector('input[name="payMethod"]:checked');
+
+  if (!custName || !custPhone || !custAddress) {
+    showMsg(msg, "Please fill in your name, phone and address.", "error");
+    return;
+  }
+  if (!payMethodEl) {
+    showMsg(msg, "Please select a payment method.", "error");
+    return;
+  }
+
+  const payMethod = payMethodEl.value;
+  let payload = {
+    customer_name: custName,
+    phone: custPhone,
+    address: custAddress,
+    product_name: product.name,
+    unit: product.unit,
+    unit_price: product.price,
+    quantity: parseFloat(document.getElementById("qtyInput").value),
+    total_price: parseFloat(document.getElementById("totalPrice").textContent),
+    payment_method: payMethod
+  };
+
+  if (payMethod === "Bank") {
+    payload.payment_bank_name = document.getElementById("bankName").value.trim();
+    payload.payment_account_title = document.getElementById("bankAccountTitle").value.trim();
+    payload.payment_account_number = document.getElementById("bankAccountNumber").value.trim();
+    payload.payment_iban = document.getElementById("bankIban").value.trim();
+  } else if (payMethod === "JazzCash") {
+    payload.payment_account_title = document.getElementById("jazzTitle").value.trim();
+    payload.payment_account_number = document.getElementById("jazzNumber").value.trim();
+  } else if (payMethod === "Easypaisa") {
+    payload.payment_account_title = document.getElementById("easyTitle").value.trim();
+    payload.payment_account_number = document.getElementById("easyNumber").value.trim();
+  }
+
+  try {
+    const res = await fetch(API_BASE + "/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + getToken()
+      },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+
+    if (res.status === 401) {
+      // Session expired or invalid - send back to login
+      clearSession();
+      showMsg(msg, "Your session has expired. Redirecting to login...", "error");
+      const here = window.location.pathname.split("/").pop() + window.location.search;
+      setTimeout(() => window.location.href = "login.html?next=" + encodeURIComponent(here), 1200);
+      return;
+    }
+
+    if (data.success) {
+      showMsg(msg, "Order placed successfully! Order ID: " + data.orderId + ". We will contact you soon.", "success");
+      document.querySelector(".order-wrap").querySelectorAll("input, textarea").forEach(el => el.value = "");
+      document.getElementById("custName").value = currentUser ? currentUser.full_name : "";
+      document.getElementById("qtyInput").value = product.minQty;
+      calcTotal();
+    } else {
+      showMsg(msg, data.message || "Something went wrong.", "error");
+    }
+  } catch (err) {
+    showMsg(msg, "Could not connect to server. Make sure the backend is running.", "error");
+  }
+}
+
+function showMsg(el, text, type) {
+  el.textContent = text;
+  el.className = "form-msg " + type;
+  el.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+</body>
+</html>

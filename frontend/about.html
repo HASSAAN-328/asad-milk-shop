@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@500;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Asad Milk Shop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="Asad Milk Shop Logo">
+      Asad Milk Shop
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html" id="authNavLink">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="section container">
+  <span class="eyebrow" style="display:flex; justify-content:center; margin-bottom:14px;">Our Story</span>
+  <h2 class="section-title" style="margin-bottom:40px;">About Asad Milk Shop</h2>
+
+  <div class="about-box reveal">
+    <h2>Three Decades of Purity</h2>
+    <p>Asad Milk Shop was founded in <strong>1990 in Faisalabad, Pakistan</strong>, with a simple mission: to bring pure, fresh and authentic dairy products to every household in the city. For over three decades, we have proudly served generations of families with our commitment to quality and tradition.</p>
+    <p>We specialize in traditional dairy delicacies made using time-honored recipes passed down through the years, including fresh milk, yogurt, Rabri Doodh, Doodh ki Bottles, Gagrala, Son Halwa and Khir — each prepared with care using the finest ingredients sourced locally from trusted farms.</p>
+    <p>Beyond everyday home delivery, Asad Milk Shop is a trusted name for catering large scale events. We proudly provide our dairy products and traditional sweets for <strong>marriage ceremonies, walima functions, birthday parties, corporate events, religious gatherings and other special occasions</strong> — delivering fresh, high-quality products in bulk quantities right on time.</p>
+
+    <div class="feature-list">
+      <div class="feature-item">✅ 30+ Years of Trusted Service</div>
+      <div class="feature-item">✅ 100% Pure & Fresh Ingredients</div>
+      <div class="feature-item">✅ Event & Wedding Catering</div>
+      <div class="feature-item">✅ Home Delivery Across Faisalabad</div>
+      <div class="feature-item">✅ Traditional Family Recipes</div>
+      <div class="feature-item">✅ Affordable & Transparent Pricing</div>
+    </div>
+
+    <p style="margin-top:24px;">Whether you need a single liter of milk for your home or hundreds of kilograms of Khir and Son Halwa for a wedding, Asad Milk Shop is committed to delivering the same quality and taste that has made us a household name in Faisalabad since 1990.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Asad Milk Shop</h4>
+      <p>Serving pure and fresh dairy products in Faisalabad, Pakistan since 1990.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Phone: +923045674893</p>
+      <p>Email: ABC@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Asad Milk Shop. All Rights Reserved. | Created by Developer <strong>Muhammad Hassaan</strong>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

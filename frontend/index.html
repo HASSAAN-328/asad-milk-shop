@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@500;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asad Milk Shop | Pure & Fresh Dairy Products</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="Asad Milk Shop Logo">
+      Asad Milk Shop
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="login.html" id="authNavLink">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Faisalabad &middot; Est. 1990</span>
+      <h1>Taaza Doodh,<br><span class="accent">Har Ghar Tak.</span></h1>
+      <div class="hero-urdu">خالص دودھ، تازہ ذائقہ</div>
+      <p>Pure, farm-fresh milk and traditional dairy sweets — Rabri, Kheer, Son Halwa and more — made the way Faisalabad has trusted for over three decades.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn">Order Now</a>
+        <a href="about.html" class="btn btn-outline">Our Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>30+</strong><span>Years of Trust</span></div>
+        <div class="hero-stat"><strong>7</strong><span>Signature Products</span></div>
+        <div class="hero-stat"><strong>100%</strong><span>Pure Ingredients</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-frame">
+        <img src="images/banner.png" alt="Asad Milk Shop fresh dairy">
+      </div>
+      <div class="hero-badge">
+        <svg class="pour-glass" viewBox="0 0 34 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 2H30L26 44H8L4 2Z" stroke="#0F5C52" stroke-width="2" stroke-linejoin="round"/>
+          <clipPath id="glassClip"><path d="M5.2 4H28.8L25.3 42H8.7L5.2 4Z"/></clipPath>
+          <rect class="milk-fill" x="5" y="4" width="24" height="40" fill="#E3982B" clip-path="url(#glassClip)"/>
+        </svg>
+        <div>
+          <strong>Fresh Today</strong>
+          <span>Delivered chilled, daily</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- signature drip divider -->
+<div class="drip-divider" aria-hidden="true">
+  <svg viewBox="0 0 1200 46" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0H1200V10C1000 22 900 4 800 14C700 24 620 4 520 12C420 20 320 2 220 12C120 22 60 6 0 14V0Z" fill="#0F5C52"/>
+    <circle class="drip-drop" cx="120" cy="18" r="4" fill="#0F5C52"/>
+    <circle class="drip-drop" cx="330" cy="15" r="3.5" fill="#0F5C52"/>
+    <circle class="drip-drop" cx="560" cy="16" r="4" fill="#0F5C52"/>
+    <circle class="drip-drop" cx="790" cy="18" r="3.5" fill="#0F5C52"/>
+    <circle class="drip-drop" cx="1010" cy="15" r="4" fill="#0F5C52"/>
+  </svg>
+</div>
+
+<!-- ===== WELCOME / FEATURES ===== -->
+<section class="welcome-section">
+  <div class="container">
+    <div class="welcome-features">
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">🥛</div>
+        <h3>Pure Milk</h3>
+        <p>Fresh and hygienic milk directly from trusted farms, delivered the same day it's collected.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">🍨</div>
+        <h3>Traditional Dairy</h3>
+        <p>Rabri, Dahi, Desi Ghee and time-honoured sweets made with recipes passed down since 1990.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Quick, chilled delivery across Faisalabad — for a single home or a hundred-guest wedding.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="section container" id="products">
+  <span class="eyebrow" style="display:flex; justify-content:center; margin-bottom:14px;">Menu</span>
+  <h2 class="section-title">Our Dairy Products</h2>
+  <p class="section-sub">Handpicked, farm-fresh and made with love — order online in a few clicks</p>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+
+    <div>
+      <h4>Asad Milk Shop</h4>
+      <p>
+        Serving pure and fresh dairy products in Faisalabad since 1990.
+        Trusted by families and event organizers across the city.
+      </p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Phone: +923045674893</p>
+      <p>Email: ABC@gmail.com</p>
+      <p>Faisalabad, Punjab, Pakistan</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Asad Milk Shop. All Rights Reserved.
+    | Created by Developer <strong>Muhammad Hassaan</strong>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+
+<script>
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+const grid = document.getElementById("productGrid");
+
+PRODUCTS.forEach(p => {
+
+    const card = document.createElement("div");
+
+    card.className = "product-card reveal";
+
+    card.innerHTML = `
+        <div class="img-wrap">
+            <img src="${p.image}" alt="${p.name}">
+        </div>
+
+        <div class="info">
+            <h3>${p.name}</h3>
+            <div class="urdu">${p.urdu}</div>
+            <div class="price">Rs ${p.price} / ${p.unit}</div>
+
+            <button class="btn btn-block"
+            onclick="orderProduct('${p.id}')">
+            Order Now
+            </button>
+        </div>
+    `;
+
+    grid.appendChild(card);
+});
+
+// New cards were just added to the page, so re-run scroll-reveal
+// to start observing them too.
+initScrollReveal();
+
+function orderProduct(id) {
+    // SECURITY: only logged-in, registered customers can order.
+    if (!isLoggedIn()) {
+        alert("Please login or sign up first to place an order.");
+        window.location.href = "login.html?next=" + encodeURIComponent("order.html?product=" + id);
+        return;
+    }
+    window.open(
+        "order.html?product=" + id,
+        "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html>

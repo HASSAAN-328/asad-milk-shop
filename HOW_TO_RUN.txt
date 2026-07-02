@@ -1,0 +1,204 @@
+====================================================================
+ ASAD MILK SHOP WEBSITE - HOW TO RUN IT (VERY EASY STEP-BY-STEP)
+====================================================================
+This guide assumes you only have VS Code and know nothing else.
+Just follow every step in order, exactly as written. Takes about
+10-15 minutes the first time.
+
+--------------------------------------------------------------------
+WHAT IS INSIDE THIS PROJECT?
+--------------------------------------------------------------------
+asad-milk-shop/
+   backend/         -> The server + database (Node.js + SQLite)
+   frontend/         -> The website pages (HTML, CSS, JavaScript)
+   HOW_TO_RUN.txt      -> This file
+   HOW_TO_ADD_IMAGES.txt -> Guide to change pictures
+
+--------------------------------------------------------------------
+STEP 1: INSTALL NODE.JS (only once, skip if already installed)
+--------------------------------------------------------------------
+1. Open your browser and go to:  https://nodejs.org
+2. Click the big green button that says "LTS" (Recommended version).
+   Make sure it is version 22 or higher.
+3. Open the downloaded file and click Next -> Next -> Install ->
+   Finish (keep all default settings, just keep clicking Next).
+4. Restart your computer after installing (recommended).
+
+HOW TO CHECK IT WORKED:
+1. Open VS Code.
+2. Click on the top menu: Terminal -> New Terminal
+   (A black/dark box will open at the bottom of VS Code)
+3. Type this and press Enter:
+
+      node -v
+
+4. If you see something like  v22.x.x  -> Great, it worked!
+   If you see an error, restart your computer and try again.
+
+--------------------------------------------------------------------
+STEP 2: OPEN THE PROJECT FOLDER IN VS CODE
+--------------------------------------------------------------------
+1. Open VS Code.
+2. Click File -> Open Folder
+3. Select the folder named:  asad-milk-shop
+4. Click "Select Folder"
+
+You should now see two folders on the left side: "backend" and
+"frontend".
+
+--------------------------------------------------------------------
+STEP 3: OPEN THE TERMINAL INSIDE THE BACKEND FOLDER
+--------------------------------------------------------------------
+1. In VS Code, click on the top menu: Terminal -> New Terminal
+2. In the black terminal box, type this exactly and press Enter:
+
+      cd backend
+
+   (This moves you INSIDE the backend folder. "cd" means
+   "change directory")
+
+--------------------------------------------------------------------
+STEP 4: INSTALL THE REQUIRED PACKAGES (only once)
+--------------------------------------------------------------------
+1. In the same terminal, type this and press Enter:
+
+      npm install
+
+2. Wait until it finishes (you will see the cursor blinking again,
+   usually takes 10-30 seconds). This downloads the small tools the
+   website server needs to run (express, bcryptjs, cors).
+
+   NOTE: You need an internet connection for this step only.
+   After this, the website can run without internet.
+
+--------------------------------------------------------------------
+STEP 5: START THE SERVER
+--------------------------------------------------------------------
+1. In the same terminal (still inside the "backend" folder), type:
+
+      npm start
+
+2. You should see a message like this appear:
+
+      ===========================================
+       Asad Milk Shop server is running!
+       Open this in your browser: http://localhost:3000
+      ===========================================
+
+3. KEEP THIS TERMINAL OPEN. Do not close it or press Ctrl+C.
+   As long as this window is open and running, your website works.
+   If you close it, the website will stop working.
+
+--------------------------------------------------------------------
+STEP 6: OPEN THE WEBSITE IN YOUR BROWSER
+--------------------------------------------------------------------
+1. Open Google Chrome (or any browser).
+2. In the address bar, type exactly:
+
+      http://localhost:3000
+
+3. Press Enter. Your Asad Milk Shop website will now open with the
+   banner, all 7 products, menu bar, everything working!
+
+--------------------------------------------------------------------
+HOW TO STOP THE WEBSITE
+--------------------------------------------------------------------
+1. Click on the terminal window inside VS Code (the one still
+   running the server).
+2. Press:  Ctrl + C
+3. If it asks "Terminate batch job (Y/N)?" type  Y  and press Enter.
+
+--------------------------------------------------------------------
+HOW TO RUN IT AGAIN LATER (after closing VS Code)
+--------------------------------------------------------------------
+You do NOT need to repeat Step 4 (npm install) again. Only do this:
+
+1. Open VS Code -> Open the "asad-milk-shop" folder.
+2. Terminal -> New Terminal
+3. Type:   cd backend
+4. Type:   npm start
+5. Open browser -> go to  http://localhost:3000
+
+--------------------------------------------------------------------
+WHERE IS MY DATA STORED? (Orders, Signups, Messages)
+--------------------------------------------------------------------
+Every time a customer signs up, places an order, or sends a message,
+it is automatically saved in a database file here:
+
+      asad-milk-shop / backend / asadmilkshop.db
+
+This file is created automatically the first time you run "npm
+start". You do not need to create it yourself. You can open this
+file using a free tool called "DB Browser for SQLite"
+(https://sqlitebrowser.org) if you want to view the saved orders,
+customers, and messages in a nice table view.
+
+--------------------------------------------------------------------
+SECURITY UPDATE - WHAT CHANGED
+--------------------------------------------------------------------
+This version of the website now includes security protections:
+
+  - Customers MUST create an account and login before they can
+    place an order (orders can no longer be placed anonymously).
+  - Login sessions use secure tokens that expire after 7 days.
+  - Repeated login/signup/order/message attempts are automatically
+    blocked for a while if someone tries too many too fast
+    (stops hacking attempts like password guessing).
+  - Bank account numbers and IBAN numbers are encrypted before
+    being saved in the database, so they can't be read directly
+    even if someone opens the database file.
+  - All form inputs are checked and cleaned on the server before
+    being saved, blocking common attack tricks.
+
+A new file was added: backend/.env
+This file holds two secret keys (already generated for you) used
+for logins and encrypting payment data. Do NOT share this file or
+upload it to a public GitHub repository. If you ever host this
+site for real customers on the internet, generate new secret keys
+first (instructions are inside the .env file itself).
+
+--------------------------------------------------------------------
+COMMON PROBLEMS AND FIXES
+--------------------------------------------------------------------
+PROBLEM: "Please login to your account before placing an order"
+FIX: This is expected behavior now - customers must sign up or
+     login before they can order. Click "Sign Up" or "Login" in
+     the menu bar first.
+
+PROBLEM: "Too many attempts, try again in 15 minutes"
+FIX: This is a security protection against hacking attempts. If
+     you see this while testing, just wait 15 minutes, or restart
+     the server (Ctrl+C then "npm start" again) to reset it
+     immediately during testing.
+
+PROBLEM: "npm: command not found" or "node: command not found"
+FIX: Node.js is not installed properly. Repeat Step 1, then restart
+     your computer.
+
+PROBLEM: Website shows "Could not connect to server" when you try
+         to login, order, or sign up.
+FIX: Make sure the terminal running "npm start" is still open and
+     shows "server is running". If you closed it, redo Step 5.
+
+PROBLEM: "Port 3000 already in use"
+FIX: Another program is already using that address. Close other
+     terminals running the server, or restart your computer, then
+     try "npm start" again.
+
+PROBLEM: Pictures are not showing / broken image icon
+FIX: See the file "HOW_TO_ADD_IMAGES.txt" for instructions on how
+     the picture files work.
+
+--------------------------------------------------------------------
+NEED TO SHARE THIS WEBSITE WITH SOMEONE ELSE ON A DIFFERENT COMPUTER
+--------------------------------------------------------------------
+Right now this website only works on YOUR computer (localhost means
+"this computer only"). To make it available to everyone on the
+internet, it needs to be uploaded ("deployed") to a hosting service
+such as Render.com, Railway.app, or a paid hosting provider. This is
+an extra step beyond just running it in VS Code - ask if you'd like
+step-by-step deployment instructions too.
+
+====================================================================
+ Website created by: Muhammad Hassaan (Software Developer)
+====================================================================

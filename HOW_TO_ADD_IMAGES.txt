@@ -1,0 +1,110 @@
+====================================================================
+ ASAD MILK SHOP - HOW TO ADD YOUR OWN PICTURES (BANNER + PRODUCTS)
+====================================================================
+
+Right now the website is using PLACEHOLDER pictures (colored boxes
+with text on them) so that the site works immediately. Follow the
+steps below to replace them with your OWN real photos.
+
+--------------------------------------------------------------------
+STEP 1: FIND THE IMAGES FOLDER
+--------------------------------------------------------------------
+In the project, go to this folder:
+
+    asad-milk-shop / frontend / images /
+
+You will see these files already inside it:
+
+    banner.jpg          -> Big banner shown on top of the homepage
+    logo.png             -> Small round logo shown in the top menu
+    milk.jpg              -> Milk product box picture
+    yogurt.jpg            -> Yogurt product box picture
+    rabri.jpg              -> Rabri Doodh product box picture
+    doodh-bottle.jpg       -> Doodh ki Bottle product box picture
+    gagrala.jpg             -> Gagrala product box picture
+    son-halwa.jpg            -> Son Halwa product box picture
+    khir.jpg                  -> Khir product box picture
+
+--------------------------------------------------------------------
+STEP 2: PREPARE YOUR OWN PHOTOS
+--------------------------------------------------------------------
+1. Collect the real photos you want to use for each item.
+2. Rename each photo EXACTLY like the file it will replace.
+   Example: if you have a milk photo, rename it to:  milk.jpg
+   (Keep the same file extension shown above - .jpg or .png)
+
+   TIP (recommended sizes for best quality, so images stay sharp
+   and don't get blurry or stretched):
+      - banner.jpg      : 1600 x 500 pixels (wide banner shape)
+      - logo.png        : 300 x 300 pixels (square)
+      - all product photos (milk.jpg, yogurt.jpg, etc.)
+                        : 800 x 600 pixels (landscape shape)
+
+   You can resize any photo for free using:
+      - Windows "Photos" app (Resize option)
+      - https://www.iloveimg.com/resize-image  (free website)
+      - Paint (built-in Windows app)
+
+--------------------------------------------------------------------
+STEP 3: REPLACE THE FILE
+--------------------------------------------------------------------
+1. Open the folder:  asad-milk-shop / frontend / images
+2. DELETE the old placeholder file (example: milk.jpg)
+3. COPY-PASTE your new photo into that same folder
+4. RENAME your new photo to the exact same name (example: milk.jpg)
+5. Repeat for every image you want to change.
+
+   IMPORTANT: The name must match EXACTLY (same spelling, same
+   lowercase letters, same extension .jpg or .png). If the name is
+   different, the website will not find your picture and it will
+   show a broken image icon instead.
+
+--------------------------------------------------------------------
+STEP 4: SEE YOUR CHANGES
+--------------------------------------------------------------------
+1. Save your image files in the folder.
+2. Go back to your browser where the website is open.
+3. Press CTRL + SHIFT + R (this refreshes the page and clears the
+   old cached picture) to see your new image appear.
+
+--------------------------------------------------------------------
+WANT TO ADD A COMPLETELY NEW IMAGE NAME INSTEAD?
+--------------------------------------------------------------------
+If you don't want to rename your photo and prefer to use your own
+file name (example: "fresh_milk_photo.jpg"):
+
+1. Put your photo inside:  asad-milk-shop / frontend / images
+2. Open the file:  asad-milk-shop / frontend / js / common.js
+3. Find the product you want to update, for example:
+
+      {
+        id: "milk",
+        name: "Milk",
+        urdu: "دودھ",
+        unit: "Liter",
+        price: 220,
+        minQty: 1,
+        maxQty: 50,
+        image: "images/milk.jpg"      <-- change this line
+      },
+
+4. Change the text  "images/milk.jpg"  to your new file name, like:
+      image: "images/fresh_milk_photo.jpg"
+
+5. Save the file and refresh the browser (CTRL + SHIFT + R).
+
+For the BANNER picture, open the file:
+   asad-milk-shop / frontend / index.html
+and find this line near the top:
+
+   <header class="banner" style="background-image:url('images/banner.jpg');">
+
+Change  images/banner.jpg  to your new banner file name, then save.
+
+--------------------------------------------------------------------
+THAT'S IT!
+--------------------------------------------------------------------
+No coding knowledge needed beyond renaming files and (optionally)
+changing one line of text as shown above.
+
+- Muhammad Hassaan (Developer)
