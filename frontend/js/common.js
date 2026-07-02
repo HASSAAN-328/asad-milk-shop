@@ -1,13 +1,16 @@
 // common.js
 // Shared data & helper functions used across all pages of Asad Milk Shop.
 
-// Change this if you deploy the backend somewhere else.
-const API_BASE = "http://localhost:3000/api";
+// This automatically points to whatever domain the site is running
+// on - your own computer during testing, or your live Vercel/Render
+// address once deployed. No need to change this by hand anymore.
+const API_BASE = "/api";
 
 // All 7 products offered by Asad Milk Shop.
 // unit = the unit of measure used for pricing (liter / kg / glass / bottle)
 const PRODUCTS = [
-  {id: "milk",
+  {
+    id: "milk",
     name: "Milk",
     urdu: "دودھ",
     unit: "Liter",
